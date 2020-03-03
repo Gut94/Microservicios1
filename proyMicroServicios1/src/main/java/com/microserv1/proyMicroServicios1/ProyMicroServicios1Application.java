@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProyMicroServicios1Application {//arranca la aplicacion
+public class ProyMicroServicios1Application {//arranca la aplicacion paquetes anidados
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProyMicroServicios1Application.class, args);
