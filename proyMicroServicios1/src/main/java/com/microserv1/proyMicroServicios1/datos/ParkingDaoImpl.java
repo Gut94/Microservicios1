@@ -17,6 +17,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 //buscar otra forma
+//hacer en cap
 @Repository
 public class ParkingDaoImpl implements ParkingDao {
 
