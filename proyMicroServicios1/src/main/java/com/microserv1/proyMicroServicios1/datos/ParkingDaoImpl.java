@@ -16,7 +16,7 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
-//buscar otra forma 2
+//buscar otra forma 3
 @Repository
 public class ParkingDaoImpl implements ParkingDao {
 
