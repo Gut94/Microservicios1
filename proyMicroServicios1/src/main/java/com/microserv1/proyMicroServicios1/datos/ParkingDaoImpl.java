@@ -48,21 +48,24 @@ public class ParkingDaoImpl implements ParkingDao {
   @Override
   public void insertParking(ParkingVehiculos park) {
 
-    // Codigo sql
-    final String sql = "insert into parking(parkingName, plazasCoche , plazasMoto, plazasBici) values(:parkingName,:plazasCoche,:plazasMoto,:plazasBici)";
-    // Esto no se que hace
-    KeyHolder holder = new GeneratedKeyHolder();
-    // Para mapear los parametros introducidos al sql
-    SqlParameterSource param = new MapSqlParameterSource().addValue("parkingName", park.getNOMBRE_PARKING())
-        .addValue("plazasCoche", park.getPlazasCoches()).addValue("plazasMoto", park.getPlazasMotos())
-        .addValue("plazasBici", park.getPlazasBicis());
-    this.template.update(sql, param, holder);
-    logger.info("insert parking {}", park.getNOMBRE_PARKING());
+    parkingrepository.save(park);	//con JPA 
+	  
+	  
+//    final String sql = "insert into parking(parkingName, plazasCoche , plazasMoto, plazasBici) values(:parkingName,:plazasCoche,:plazasMoto,:plazasBici)"; // Codigo sql
+//    
+//    KeyHolder holder = new GeneratedKeyHolder(); // Esto no se que hace
+//    
+//    SqlParameterSource param = new MapSqlParameterSource().addValue("parkingName", park.getNOMBRE_PARKING())// Para mapear los parametros introducidos al sql
+//        .addValue("plazasCoche", park.getPlazasCoches()).addValue("plazasMoto", park.getPlazasMotos())
+//        .addValue("plazasBici", park.getPlazasBicis());
+//    this.template.update(sql, param, holder);
+//    logger.info("insert parking {}", park.getNOMBRE_PARKING());
   }
 
   @Override
   public void updateParking(ParkingVehiculos park) {
 
+	  //save pero con id
     final String sql = "update parking set plazasCoche=:plazasCoche, plazasBici=:plazasBici, plazasMoto=:plazasMoto where parkingName=:parkingName";
     KeyHolder holder = new GeneratedKeyHolder();
     SqlParameterSource param = new MapSqlParameterSource().addValue("parkingName", park.getNOMBRE_PARKING())
