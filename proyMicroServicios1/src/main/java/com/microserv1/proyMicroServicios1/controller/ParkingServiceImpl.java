@@ -16,7 +16,7 @@ public class ParkingServiceImpl implements ParkingService {
   @Override
   public List<ParkingVehiculos> findAll() {
 
-    return this.parkingDao.findAll();
+    return this.parkingDao.findAll2();
   }
 
   @Override

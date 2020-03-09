@@ -2,12 +2,14 @@ package com.microserv1.proyMicroServicios1.datos;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -24,6 +26,9 @@ public class ParkingDaoImpl implements ParkingDao {
   private static final Logger logger = LogManager.getLogger(ParkingVehiculos.class);
 
   NamedParameterJdbcTemplate template;
+  
+  @Autowired
+  private ParkingRepository parkingrepository;
 
   public ParkingDaoImpl(NamedParameterJdbcTemplate template) {
 
@@ -31,9 +36,13 @@ public class ParkingDaoImpl implements ParkingDao {
   }
 
   @Override
-  public List<ParkingVehiculos> findAll() {
+  public List<ParkingVehiculos> findAll2() {
 
-    return this.template.query("select * from parking", new ParkingRowMapper());
+	  List<ParkingVehiculos>parkings = new ArrayList<>();
+	  parkingrepository.findAll()	//hace la query y conexion
+	  .forEach(parkings::add);		//itera el findAll y lo add a parkings (lambdas) 
+	  return parkings;
+    //return this.template.query("select * from parking", new ParkingRowMapper());
   }
 
   @Override

@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface ParkingDao {
 
-  List<ParkingVehiculos> findAll();
+  List<ParkingVehiculos> findAll2();
 
   void insertParking(ParkingVehiculos park);
 
