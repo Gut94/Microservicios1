@@ -47,7 +47,7 @@ public class ControladorSQL {
   @GetMapping(value = "/parkingList")
   public @ResponseBody ResponseEntity<Object> getParkings() {
 
-    return new ResponseEntity<>(this.parkingService.findAll(), HttpStatus.ACCEPTED);
+    return new ResponseEntity<>(this.parkingService.findAll3(), HttpStatus.ACCEPTED);
   }
 
   // Crea nuevo parking en db

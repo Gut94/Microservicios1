@@ -6,7 +6,7 @@ import com.microserv1.proyMicroServicios1.datos.ParkingVehiculos;
 
 public interface ParkingService {
 
-  List<ParkingVehiculos> findAll();
+  List<ParkingVehiculos> findAll3();
 
   void insertParking(ParkingVehiculos park);
 

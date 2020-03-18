@@ -1,7 +1,8 @@
-CREATE TABLE parking
+CREATE TABLE parking_vehiculos
 (
-    parkingName varchar(25) NOT NULL,
-    plazasCoche int NOT NULL ,
-    plazasMoto int NOT NULL,
-    plazasBici int NOT NULL
+    id serial PRIMARY KEY,
+    parking_name varchar(25) NOT NULL,
+    plazas_coche int NOT NULL ,
+    plazas_moto int NOT NULL,
+    plazas_bici int NOT NULL
 );
