@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -59,26 +60,26 @@ public class ControladorSQL {
   }
 
   // Actualiza un parking en db
-  @PutMapping(value = "/updateParking")
-  public @ResponseBody ResponseEntity<Object> updateParking(@RequestBody ParkingVehiculos park) {
+  @PutMapping(value = "/updateParking/{id}")
+  public @ResponseBody ResponseEntity<Object> updateParking(@RequestBody ParkingVehiculos park, @PathVariable Long id) {
 
-    this.parkingService.updateParking(park);
+    this.parkingService.updateParking(park, id);
     return new ResponseEntity<>("Actualizando todo el parking:" + park.getNOMBRE_PARKING(), HttpStatus.ACCEPTED);
   }
 
   // Actualiza un parking en db usando template.execute (ni idea xd)
-  @PutMapping(value = "/executeUpdateParking")
+ /* @PutMapping(value = "/executeUpdateParking")
   public @ResponseBody ResponseEntity<Object> executeUpdateParking(@RequestBody ParkingVehiculos park) {
 
     this.parkingService.executeUpdateParking(park);
     return new ResponseEntity<>("Actualizando parte del parking: " + park.getNOMBRE_PARKING(), HttpStatus.ACCEPTED);
-  }
+  }*/
 
   // Borra Parking en db
-  @DeleteMapping(value = "/deleteParkingById")
-  public @ResponseBody ResponseEntity<Object> deleteParking(@RequestBody ParkingVehiculos park) {
+  @DeleteMapping(value = "/deleteParkingById/{id}")
+  public @ResponseBody ResponseEntity<Object> deleteParking(@PathVariable Long id) {
 
-    this.parkingService.deleteParking(park);
-    return new ResponseEntity<>("Borrando parking: " + park.getNOMBRE_PARKING(), HttpStatus.ACCEPTED);
+    this.parkingService.deleteParking(id);
+    return new ResponseEntity<>("Borrando parking con id: " + id, HttpStatus.ACCEPTED);
   }
 }

@@ -63,19 +63,24 @@ public class ParkingDaoImpl implements ParkingDao {
   }
 
   @Override
-  public void updateParking(ParkingVehiculos park) {
-
-	  //save pero con id
-    final String sql = "update parking set plazasCoche=:plazasCoche, plazasBici=:plazasBici, plazasMoto=:plazasMoto where parkingName=:parkingName";
+  public void updateParking(Long id, ParkingVehiculos park) {
+	 
+	 // if ( parkingrepository.findById(id).isPresent) 
+	 ParkingVehiculos parkInDb = parkingrepository.findById(id).get();
+	 park.setId(id); 
+	 parkingrepository.save(park);	//save pero con id
+	 
+	 
+    /*final String sql = "update parking set plazasCoche=:plazasCoche, plazasBici=:plazasBici, plazasMoto=:plazasMoto where parkingName=:parkingName";
     KeyHolder holder = new GeneratedKeyHolder();
     SqlParameterSource param = new MapSqlParameterSource().addValue("parkingName", park.getNOMBRE_PARKING())
         .addValue("plazasCoche", park.getPlazasCoches()).addValue("plazasMoto", park.getPlazasMotos())
         .addValue("plazasBici", park.getPlazasBicis());
     this.template.update(sql, param, holder);
-    logger.info("update parking {}", park.getNOMBRE_PARKING());
+    logger.info("update parking {}", park.getNOMBRE_PARKING());*/
   }
 
-  @Override
+ /* @Override
   public void executeUpdateParking(ParkingVehiculos park) {
 
     final String sql = "update parking set plazasCoche=:plazasCoche, plazasBici=:plazasBici, plazasMoto=:plazasMoto where parkingName=:parkingName";
@@ -93,12 +98,14 @@ public class ParkingDaoImpl implements ParkingDao {
       }
     });
     logger.info("execute parking {}", park.getNOMBRE_PARKING());
-  }
+  }*/
 
   @Override
-  public void deleteParking(ParkingVehiculos park) {
+  public void deleteParking(Long id) {
+	  
+	  parkingrepository.deleteById(id);
 
-	  final String sql = "delete from parking where parkingName=:parkingName";
+	  /*final String sql = "delete from parking where parkingName=:parkingName";
 	  Map<String,Object> map=new HashMap<String,Object>();  
 	  map.put("parkingName", park.getNOMBRE_PARKING());
 	  template.execute(sql,map,new PreparedStatementCallback<Object>() {  
@@ -107,7 +114,7 @@ public class ParkingDaoImpl implements ParkingDao {
 	             throws SQLException, DataAccessException {  
 	         return ps.executeUpdate();  
 	     }  
-	 });  
+	 });  */
     
   }
 

@@ -10,10 +10,10 @@ public interface ParkingService {
 
   void insertParking(ParkingVehiculos park);
 
-  void updateParking(ParkingVehiculos park);
+  void updateParking(ParkingVehiculos park, Long id);
 
-  void executeUpdateParking(ParkingVehiculos park);
+ // void executeUpdateParking(ParkingVehiculos park);
 
-  void deleteParking(ParkingVehiculos park);
+  void deleteParking(Long id);
 
 }

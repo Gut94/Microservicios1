@@ -8,9 +8,9 @@ public interface ParkingDao {
 
   void insertParking(ParkingVehiculos park);
 
-  void updateParking(ParkingVehiculos park);
+  void updateParking(Long id, ParkingVehiculos park);
 
-  void executeUpdateParking(ParkingVehiculos park);
+  //void executeUpdateParking(ParkingVehiculos park);
 
-  public void deleteParking(ParkingVehiculos park);
+  public void deleteParking(Long id);
 }

@@ -24,7 +24,9 @@ public class ParkingVehiculos {
   @Column(name="parkingName")
   String NOMBRE_PARKING;
 
-  @Transient
+
+
+@Transient
   int plazasDisponiblesCoches;
 
   @Transient
@@ -283,4 +285,11 @@ public class ParkingVehiculos {
     this.NOMBRE_PARKING = nOMBRE_PARKING;
   }
 
+  	public Long getId() {
+		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
 }
