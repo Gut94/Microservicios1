@@ -66,7 +66,7 @@ public class ParkingDaoImpl implements ParkingDao {
   public void updateParking(Long id, ParkingVehiculos park) {
 	 
 	 // if ( parkingrepository.findById(id).isPresent) 
-	 ParkingVehiculos parkInDb = parkingrepository.findById(id).get();
+	 //ParkingVehiculos parkInDb = parkingrepository.findById(id).get();
 	 park.setId(id); 
 	 parkingrepository.save(park);	//save pero con id
 	 
