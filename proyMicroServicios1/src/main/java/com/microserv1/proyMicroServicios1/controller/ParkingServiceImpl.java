@@ -14,9 +14,9 @@ public class ParkingServiceImpl implements ParkingService {
   ParkingDao parkingDao;
 
   @Override
-  public List<ParkingVehiculos> findAll() {
+  public List<ParkingVehiculos> findAll3() {
 
-    return this.parkingDao.findAll();
+    return this.parkingDao.findAll2();
   }
 
   @Override
@@ -27,23 +27,23 @@ public class ParkingServiceImpl implements ParkingService {
   }
 
   @Override
-  public void updateParking(ParkingVehiculos park) {
+  public void updateParking(ParkingVehiculos park, Long id) {
 
-    this.parkingDao.updateParking(park);
+    this.parkingDao.updateParking(id, park);
 
   }
 
-  @Override
+  /*@Override
   public void executeUpdateParking(ParkingVehiculos park) {
 
     this.parkingDao.executeUpdateParking(park);
 
-  }
+  }*/
 
   @Override
-  public void deleteParking(ParkingVehiculos park) {
+  public void deleteParking(Long id) {
 
-    this.parkingDao.deleteParking(park);
+    this.parkingDao.deleteParking(id);
 
   }
 

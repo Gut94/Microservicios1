@@ -1,0 +1,8 @@
+Resumen del periodo de prácticas
+
+Academy: Formación en los siguientes temas: Git , Java, jUnit, Spring.
+El fin último era crear un microservicio REST con SpringBoot usando Devon.
+
+Mosaique: Aprendizaje del uso de la aplicación, del desarrollo en VB6 y debug con las herramientas mantis y BUG-i.
+Desarrollo de un servicio de acceso a SD en c#.
+Repetición del ejercicio REST del Academy con ASP.NET c#.

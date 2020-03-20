@@ -6,14 +6,14 @@ import com.microserv1.proyMicroServicios1.datos.ParkingVehiculos;
 
 public interface ParkingService {
 
-  List<ParkingVehiculos> findAll();
+  List<ParkingVehiculos> findAll3();
 
   void insertParking(ParkingVehiculos park);
 
-  void updateParking(ParkingVehiculos park);
+  void updateParking(ParkingVehiculos park, Long id);
 
-  void executeUpdateParking(ParkingVehiculos park);
+ // void executeUpdateParking(ParkingVehiculos park);
 
-  void deleteParking(ParkingVehiculos park);
+  void deleteParking(Long id);
 
 }
