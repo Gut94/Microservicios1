@@ -24,7 +24,13 @@ public class Controlador {
 
     super();
   }
+  
+  @GetMapping(value = "") // mensaje de inicio para evitar error
+  public String inicio() {
 
+    return "Backend, usar Postman";
+  }
+  
   @GetMapping(value = "/parking") // cuando usas get
   public @ResponseBody ResponseEntity<Object> getparking() {
 

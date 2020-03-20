@@ -2,39 +2,67 @@ package com.microserv1.proyMicroServicios1.datos;
 
 import java.util.ArrayList;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+@Entity
 public class ParkingVehiculos {
 
   private static final Logger logger = LogManager.getLogger(ParkingVehiculos.class);
 
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+  
+  @Column(name="parkingName")
   String NOMBRE_PARKING;
 
+
+
+@Transient
   int plazasDisponiblesCoches;
 
+  @Transient
   int plazasDisponiblesMotos;
 
+  @Transient
   int plazasDisponiblesBicis;
 
+  @Column(name="plazasCoche")
   int plazasCoches;
 
+  @Column(name="plazasMoto")
   int plazasMotos;
 
+  @Column(name="plazasBici")
   int plazasBicis;
 
+  @Transient
   Boolean admitidoBool = true;
 
+  @Transient
   String admitido;
 
+  @Transient
   String tipoVehiculo;
 
+  @Transient
   String mensajeAceptar;
 
+  @Transient
   String mensajePorColor;
 
+  @Transient
   static final String NOACEPTADO = "NO";
 
+  @Transient
   int numeroVehiculosPorColor;
 
   public ParkingVehiculos() {
@@ -257,4 +285,11 @@ public class ParkingVehiculos {
     this.NOMBRE_PARKING = nOMBRE_PARKING;
   }
 
+  	public Long getId() {
+		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
 }
