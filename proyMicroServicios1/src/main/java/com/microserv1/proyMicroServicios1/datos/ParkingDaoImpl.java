@@ -65,7 +65,7 @@ public class ParkingDaoImpl implements ParkingDao {
   @Override
   public void updateParking(Long id, ParkingVehiculos park) {
 	 
-	 // if ( parkingrepository.findById(id).isPresent) 
+	 // if ( parkingrepository.findById(id).isPresent) sonarlint
 	 //ParkingVehiculos parkInDb = parkingrepository.findById(id).get();
 	 park.setId(id); 
 	 parkingrepository.save(park);	//save pero con id
